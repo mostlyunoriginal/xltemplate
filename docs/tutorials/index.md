@@ -10,10 +10,13 @@ Learn how to use xltemplate effectively with these step-by-step guides.
 
 Your first xltemplate workflow: create a template, populate it with data, and save the result.
 
+### [Summarizing DataFrames](02_summarize_dataframes.md)
+
+Create a multi-sheet template with conditional formatting and populate it with plotnine DataFrames.
+
 ---
 
 ## Coming Soon
 
-- Working with Multiple Sheets
 - Preserving Complex Formatting
-- Using plotnine Demo DataFrames
+- Working with Named Ranges

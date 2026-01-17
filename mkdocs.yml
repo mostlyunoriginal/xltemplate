@@ -51,5 +51,6 @@ nav:
   - Tutorials:
       - Overview: tutorials/index.md
       - Getting Started: tutorials/01_getting_started.md
+      - Summarizing DataFrames: tutorials/02_summarize_dataframes.md
   - API Reference:
       - Workbook & Sheet: reference/api.md
