@@ -18,6 +18,8 @@ pip install xltemplate[polars]
 
 ## Step 1: Create a Template
 
+> **Note:** In typical usage, you'll work with pre-existing Excel templates designed by you or your team. This tutorial creates a template programmatically so the example is fully reproducible and self-contained.
+
 First, create an Excel template with your headers and formatting. You can use Excel, LibreOffice, or openpyxl directly:
 
 ```python

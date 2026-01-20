@@ -226,7 +226,8 @@ class Sheet:
         """
         Extract labels and spans from a single header row.
         
-        For merged cells, determines the span from the merge range.
+        For merged cells, determines the span from the merge range and
+        retrieves the value from the top-left cell of the merge.
         For non-merged cells, the span is 1.
         
         Args:
@@ -248,6 +249,13 @@ class Sheet:
             span = 1
             for merged_range in self._ws.merged_cells.ranges:
                 if cell.coordinate in merged_range:
+                    # Get the value from the top-left cell of the merged range
+                    top_left_cell = self._ws.cell(
+                        row=merged_range.min_row,
+                        column=merged_range.min_col
+                    )
+                    cell_value = top_left_cell.value
+                    
                     # Get the span within our column range
                     merge_start_col = merged_range.min_col
                     merge_end_col = merged_range.max_col
@@ -259,3 +267,4 @@ class Sheet:
             c_idx += span
         
         return result
+

@@ -52,5 +52,6 @@ nav:
       - Overview: tutorials/index.md
       - Getting Started: tutorials/01_getting_started.md
       - Summarizing DataFrames: tutorials/02_summarize_dataframes.md
+      - Schema Extraction: tutorials/03_schema_extraction.md
   - API Reference:
       - Workbook & Sheet: reference/api.md
