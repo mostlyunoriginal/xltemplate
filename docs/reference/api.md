@@ -34,6 +34,23 @@ Complete documentation for xltemplate classes and methods.
 
 ---
 
+## TableSchema
+
+::: xltemplate.TableSchema
+    options:
+      show_root_heading: true
+      heading_level: 3
+      members:
+        - column_names
+        - header_rows
+        - groups
+        - n_levels
+        - to_multiindex
+        - empty_df
+        - validate_df
+
+---
+
 ## Preserving Formulas
 
 By default, `write_df()` will **skip cells containing formulas**. This prevents accidental overwriting of calculated fields.
