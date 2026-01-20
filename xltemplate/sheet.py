@@ -208,34 +208,36 @@ class Sheet:
             column_names.append(str(cell_value) if cell_value is not None else "")
             c_idx += 1
         
-        # Extract group information for multi-row headers
-        groups: list[tuple[str, int]] | None = None
+        # Extract all header rows above the leaf row (from top to bottom)
+        header_rows: list[list[tuple[str, int]]] = []
         if n_header_rows > 1:
-            groups = self._extract_header_groups(row, col, len(column_names))
+            for header_row_idx in range(row, leaf_row):
+                header_row = self._extract_header_row(header_row_idx, col, len(column_names))
+                header_rows.append(header_row)
         
-        return TableSchema(column_names=column_names, groups=groups)
+        return TableSchema(column_names=column_names, header_rows=header_rows)
     
-    def _extract_header_groups(
+    def _extract_header_row(
         self,
         row: int,
         col: int,
         n_cols: int,
     ) -> list[tuple[str, int]]:
         """
-        Extract group names and spans from the first header row.
+        Extract labels and spans from a single header row.
         
         For merged cells, determines the span from the merge range.
         For non-merged cells, the span is 1.
         
         Args:
-            row: The row containing group headers
+            row: The row to extract
             col: Starting column
             n_cols: Number of columns to process
             
         Returns:
-            List of (group_name, span) tuples
+            List of (label, span) tuples
         """
-        groups: list[tuple[str, int]] = []
+        result: list[tuple[str, int]] = []
         c_idx = col
         
         while c_idx < col + n_cols:
@@ -252,8 +254,8 @@ class Sheet:
                     span = min(merge_end_col, col + n_cols - 1) - max(merge_start_col, col) + 1
                     break
             
-            group_name = str(cell_value) if cell_value is not None else ""
-            groups.append((group_name, span))
+            label = str(cell_value) if cell_value is not None else ""
+            result.append((label, span))
             c_idx += span
         
-        return groups
+        return result
