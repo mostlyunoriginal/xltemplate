@@ -14,9 +14,13 @@ Your first xltemplate workflow: create a template, populate it with data, and sa
 
 Create a multi-sheet template with conditional formatting and populate it with plotnine DataFrames.
 
+### [Schema Extraction](03_schema_extraction.md)
+
+Extract hierarchical column schemas from templates and create matching MultiIndex DataFrames.
+
 ---
 
 ## Coming Soon
 
-- Preserving Complex Formatting
 - Working with Named Ranges
+- Advanced Formula Preservation

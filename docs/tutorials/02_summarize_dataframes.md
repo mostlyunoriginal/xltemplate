@@ -31,6 +31,8 @@ Each data sheet will have:
 
 ## Step 1: Create the Template
 
+> **Note:** In typical usage, you'll work with pre-existing Excel templates. This tutorial creates templates programmatically so the example is fully reproducible and self-contained.
+
 First, we create a template with openpyxl that includes conditional formatting:
 
 ```python
